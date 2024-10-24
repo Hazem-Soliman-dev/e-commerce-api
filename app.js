@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import multer from "multer";
 import dotenv from "dotenv";
 import Products from "./routes/product.js";
+import User from "./routes/user.js";
 
 dotenv.config();
 
@@ -21,8 +22,9 @@ mongoose
     console.log("Failed to connect to MongoDB", err);
   });
 
-app.use("/api/products", Products);
+app.use("/products", Products);
+app.use("/users", User);
 
 app.listen(port, () => {
-  console.log("Server is running on http://localhost:" + port + "/api/products");
+  console.log("Server is running on http://localhost:" + port);
 });
